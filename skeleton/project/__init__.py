@@ -7,7 +7,7 @@
 
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from flask.ext.login import LoginManager
 from flask.ext.bcrypt import Bcrypt
 from flask.ext.debugtoolbar import DebugToolbarExtension
@@ -21,7 +21,6 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
-
 
 ####################
 #### extensions ####
@@ -59,6 +58,10 @@ login_manager.login_message_category = 'danger'
 def load_user(user_id):
     return User.query.filter(User.id == int(user_id)).first()
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 ########################
 #### error handlers ####
