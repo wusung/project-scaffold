@@ -8,9 +8,11 @@ install:
 run:
 	python manage.py runserver -h 0.0.0.0
 
-test:
+test: clean
 	python manage.py test
 
 cov:
 	python manage.py cov
-	
+
+clean:
+	if [ -f project/test.sqlite ]; then rm project/test.sqlite; fi
