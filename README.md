@@ -7,5 +7,5 @@ pip install -r requirements
 
 ## Usage
 ```
-python3 
+python3 flask_skeleton.py -s skeleton
 ```
