@@ -1,14 +1,14 @@
 # Project-Scaffold
 
-## Goals
+### Goals
 The main goal of this project is to generate easily a skeleton for a simple or more complex Flask application.
 
-## Prerequest
+### Prerequest
 ```
 pip install -r requirements
 ```
 
-## Usage
+### Usage
 ```
 python3 flask_skeleton.py -s skeleton
 ```
